@@ -1,0 +1,37 @@
+<mvc:View controllerName="demo.ladera.demopoc.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app" >
+    <!-- <pages> -->
+            <Page id="page" showHeader="true">
+               <customHeader>
+                <Bar id="appPage">
+             <contentLeft>
+                <Button 
+                id="sideNavToggleBtn"
+                icon="sap-icon://menu2" 
+                visible="false"
+                press=".onToggleSideNav"/>
+              <Image src="img/five.png"  width="40px" height="40px" class="image" />
+              </contentLeft>
+             <contentMiddle>
+              <HBox justifyContent="Center" alignItems="Center" width="100%" class="title">
+                <Title  text="THAILAND T-SHIRTS" class="text" />
+            </HBox>
+            </contentMiddle>
+             <contentRight>
+           <Button text="Home" press=".onNavToHome"/>
+        <Button text="Catalog" press=".onNavToCatalog"/>
+           <Button text="Cart" press=".onNavToCart"/>
+           <Button text="Log Out" press=".onLogout"/>
+            </contentRight>
+            </Bar>
+             </customHeader>
+
+                <!-- Router target pages will load here -->
+                <NavContainer id="navContainer"/>
+            </Page>
+        <!-- </pages> -->
+    </App>
+</mvc:View>

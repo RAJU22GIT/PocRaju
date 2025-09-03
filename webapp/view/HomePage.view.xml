@@ -1,0 +1,44 @@
+<mvc:View xmlns:l="sap.ui.layout"
+ xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m" xmlns:tnt="sap.tnt" 
+  controllerName="demo.ladera.demopoc.controller.HomePage">
+<Page showHeader="false" >
+<!-- <customHeader>
+<Bar>
+<contentLeft>
+  <Image src="img/five.png"  width="40px" height="40px" class="image" />
+ </contentLeft>
+<contentMiddle>
+  <HBox justifyContent="Center" alignItems="Center" width="100%" class="title">
+                <Title  text="THAILAND T-SHIRTS" class="text" />
+            </HBox>
+</contentMiddle>
+<contentRight>
+<Button icon="sap-icon://log" text="Log-Out"  type="Transparent" press="onSignOut"></Button>
+</contentRight>
+</Bar>
+</customHeader> -->
+ <FlexBox direction="Row" fitContainer="true" width="100%" height="100%">
+ 
+<tnt:SideNavigation id="sideNav" expanded="false" >
+<tnt:NavigationList  >
+<!-- <tnt:NavigationListItem icon="sap-icon://paging" press="onExpand"/> -->
+<tnt:NavigationListItem text="Purchase" key="rootItem1" icon="sap-icon://employee" expanded="false">
+<tnt:NavigationListItem text="Purchase Order Create" press="onCreate"/>
+<tnt:NavigationListItem text="Catalog" press="onCatalog"/>
+<tnt:NavigationListItem text="Order Cancel"/>
+</tnt:NavigationListItem>
+<tnt:NavigationListItem text="Finance" icon="sap-icon://building"/>
+<tnt:NavigationListItem text="Warranty" icon="sap-icon://building"/>
+<tnt:NavigationListItem text="Publication" icon="sap-icon://building"/>
+</tnt:NavigationList>
+</tnt:SideNavigation>
+
+<Carousel id="bgCarousel" height="100%" width="100%" loop="true" class="bg-carousel" showPageIndicator="false">
+            <Image src ="img/tshirt4.jpg" width="100%"/>
+             <Image src="img/two.png" width="100%" height="100%"/>
+               <Image src="img/three.png" width="100%" height="100%"/> 
+    </Carousel>
+    </FlexBox>
+</Page>
+</mvc:View>

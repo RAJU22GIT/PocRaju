@@ -1,0 +1,125 @@
+<mvc:View
+    controllerName="demo.ladera.demopoc.controller.CartPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:l="sap.ui.layout">
+
+  <Page showHeader="false" enableScrolling="false">
+    <!-- <customHeader>
+      <Bar>
+        <contentLeft>
+          <Button icon="sap-icon://nav-back" press="onNavBack"/>
+        </contentLeft>
+        <contentMiddle>
+          <Title text="PRODUCT DETAILS"/>
+        </contentMiddle>
+        <contentRight>
+          <Button icon="sap-icon://cart" press="onCartPress"/>
+        </contentRight>
+      </Bar>
+    </customHeader> -->
+
+    
+    <FlexBox direction="Row" fitContainer="true" width="100%" height="100%">
+
+      <!-- Side Navigation -->
+      <tnt:SideNavigation id="sideNav1" expanded="false">
+        <tnt:NavigationList id="navigationList1" width="260px" itemSelect="onSideItemSelect">
+          <tnt:NavigationListItem text="" key="__toggle" icon="sap-icon://menu2"/>
+          <tnt:NavigationListItem text="MODELS" key="root" icon="sap-icon://employee" expanded="false">
+            <tnt:NavigationListItem text="HALF HAND T-SHIRTS" key="half"/>
+            <tnt:NavigationListItem text="PRINTED T-SHIRTS"   key="printed"/>
+            <tnt:NavigationListItem text="5 SLEEVE T-SHIRTS"  key="five"/>
+            <tnt:NavigationListItem text="WOMAN T-SHIRTS"     key="woman"/>
+            <tnt:NavigationListItem text="HOODIE T-SHIRTS"    key="hoodie"/>
+            <tnt:NavigationListItem text="THEMED T-SHIRTS"    key="themed"/>
+          </tnt:NavigationListItem>
+        </tnt:NavigationList>
+        <tnt:fixedItem>
+         <tnt:NavigationList>
+         <tnt:NavigationListItem  icon="sap-icon://cart" press="onCartPress"/>
+           </tnt:NavigationList>
+        </tnt:fixedItem>
+      </tnt:SideNavigation>
+
+     
+      <VBox id="mainContent" width="100%" height="100%" class="sapUiSmallMargin">
+        <l:Grid defaultSpan="L6 M12 S12" class="pageGrid">
+
+         
+          <l:content>
+            <Carousel id="productCarousel" width="100%" height="420px" pages="{productModel>/images}">
+              <pages>
+                <Image src="{productModel>src}" densityAware="false" class="productImage"/>
+              </pages>
+            </Carousel>
+          </l:content>
+
+         
+          <l:content>
+            <VBox class="detailsBox" width="100%">
+              <Text text="{productModel>/name}" class="sapUiSmallMarginBottom" wrapping="false"/>
+              <Text text="Model: {productModel>/model}" class="sapUiSmallMarginBottom"/>
+
+              <Select width="200px" selectedKey="{productModel>/size}">
+                <items>
+                  <core:Item key="S" text="Small"/>
+                  <core:Item key="M" text="Medium"/>
+                  <core:Item key="L" text="Large"/>
+                  <core:Item key="XL" text="XL"/>
+                </items>
+              </Select>
+
+              <HBox class="sapUiSmallMarginTop" alignItems="Center">
+                <Button text="-" press="onDecreaseQty" tooltip="Decrease"/>
+                <Text text="{productModel>/quantity}" class="sapUiTinyMargin sapUiMediumMarginBegin sapUiMediumMarginEnd"/>
+                <Button text="+" press="onIncreaseQty" tooltip="Increase"/>
+              </HBox>
+
+              <VBox class="sapUiSmallMarginTop">
+                <Text text="Price: ₹ {productModel>/price}"/>
+                <Text text="Subtotal: ₹ {productModel>/subtotal}"/>
+              </VBox>
+
+              <Button text="Add to Cart" type="Emphasized" class="sapUiSmallMarginTop" press="onAddToCart"/>
+            </VBox>
+          </l:content>
+
+        </l:Grid>
+      </VBox>
+
+      
+      <Panel id="cartPanel" width="300px" visible="false" class="sapUiSmallMarginBegin">
+        <headerToolbar>
+          <Toolbar>
+            <Title text="My Cart"/>
+            <ToolbarSpacer/>
+            <Button icon="sap-icon://decline" press="onCloseCart"/>
+          </Toolbar>
+        </headerToolbar>
+        <List id="cartList" items="{cartModel>/items}">
+  <CustomListItem>
+    <HBox alignItems="Center" justifyContent="SpaceBetween">
+      <HBox alignItems="Center">
+        <Image src="{cartModel>image}" width="60px" height="60px"/>
+        <VBox class="sapUiSmallMarginBegin">
+          <Text text="{cartModel>name}" />
+          <Text text="Qty: {cartModel>quantity}" />
+          <Text text="Subtotal: ₹{cartModel>subtotal}" />
+        </VBox>
+      </HBox>
+      <!-- Delete button -->
+      <Button 
+        icon="sap-icon://delete" 
+        type="Reject"
+        press=".onDeleteFromCart" />
+    </HBox>
+  </CustomListItem>
+</List>
+      </Panel>
+
+    </FlexBox>
+  </Page>
+</mvc:View>

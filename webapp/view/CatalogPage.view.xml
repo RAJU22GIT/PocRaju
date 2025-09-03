@@ -1,0 +1,127 @@
+<mvc:View
+    controllerName="demo.ladera.demopoc.controller.CatalogPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+
+    <Page showHeader="false">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Image src="img/five.png" width="40px" height="40px"/>
+                    <Text text="CATALOG"></Text>
+                </contentLeft>
+                <contentMiddle>
+                  <HBox justifyContent="Center" alignItems="Center" width="100%" class="title">
+                <Title  text="THAILAND T-SHIRTS" class="text" />
+            </HBox>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://log" text="Log-Out" type="Transparent" press="onSignOut"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+      
+        <l:Grid defaultSpan="L4 M6 S12" width="100%" hSpacing="2" vSpacing="2" >
+
+            <l:content >
+                <l:Grid defaultSpan="L12 M12 S12" >
+                    <SlideTile class="sapUiSmallMargin" press="onSlideNav">
+                        <GenericTile backgroundImage="https://cdn.pixabay.com/photo/2023/05/06/01/34/t-shirt-7973404_1280.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://png.pngtree.com/thumb_back/fw800/background/20230720/pngtree-yellow-background-with-3d-t-shirts-rendered-image_3711716.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://cdn.pixabay.com/photo/2024/04/29/04/21/tshirt-8726716_640.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="HALF HAND T-SHIRTS" />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+            <l:content>
+                <l:Grid defaultSpan="L12 M12 S12">
+                    <SlideTile class="sapUiSmallMargin">
+                        <GenericTile backgroundImage="https://img.freepik.com/premium-photo/modern-tshirt-design-hd-8k-wallpaper-stock-photographic_853645-63156.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://i.etsystatic.com/42461848/r/il/070429/4783453132/il_1080xN.4783453132_j1eq.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://img.fruugo.com/product/1/10/146192101_max.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="PRINTED T-SHIRTS" />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+            <l:content>
+                <l:Grid defaultSpan="L12 M12 S12">
+                    <SlideTile class="sapUiSmallMargin">
+                        <GenericTile backgroundImage="https://www.dhresource.com/0x0/f2/albu/g22/M01/9A/01/rBVaE2Ixiv-APhUpABwjHguP6RM084.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://img.freepik.com/premium-photo/plain-crew-neck-dark-gray-t-shirt-is-neatly-laid-out-clean-white-background_729149-144159.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://img.freepik.com/premium-photo/realistic-tshirts-front-view-mockup-with-copy-space-background_886983-4099.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="5-SLEEVE T-SHIRTS"  />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+            <l:content>
+                <l:Grid defaultSpan="L12 M12 S12">
+                    <SlideTile class="sapUiSmallMargin">
+                        <GenericTile backgroundImage="https://www.creativefabrica.com/wp-content/uploads/2023/05/16/Black-TShirt-Mockup-Graphics-69807676-1.png"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://i.etsystatic.com/34934159/r/il/b3f9cc/3746067648/il_1080xN.3746067648_6t47.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://img.freepik.com/premium-photo/black-tshirt-mockup-isolated-grey-background_114853-571.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="WOMAN T-SHIRTS" />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+            <l:content>
+                <l:Grid defaultSpan="L12 M12 S12">
+                    <SlideTile class="sapUiSmallMargin">
+                        <GenericTile backgroundImage="https://www.pngitem.com/pimgs/m/25-253502_hoodie-hd-png-download.png"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://www.pngitem.com/pimgs/m/148-1480850_hoodie-hd-png-download.png"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/dd62a788264335.5dd16f374384f.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="HOODIE T-SHIRTS" />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+
+            <l:content>
+                <l:Grid defaultSpan="L12 M12 S12">
+                    <SlideTile class="sapUiSmallMargin">
+                        <GenericTile backgroundImage="https://wallpaperaccess.com/full/9374034.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://img.freepik.com/premium-vector/dragon-illustration_797981-26206.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                        <GenericTile backgroundImage="https://wallpaperaccess.com/full/9374018.jpg"
+                                     frameType="TwoByOne" press="pressOnTileOne"/>
+                    </SlideTile>
+                    <HBox width="100%" alignContent="Center" justifyContent="Center">
+                        <Text text="THEMED T-SHIRTS" />
+                    </HBox>
+                </l:Grid>
+            </l:content>
+
+        </l:Grid>
+    </Page>
+</mvc:View>

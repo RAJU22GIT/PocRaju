@@ -1,0 +1,136 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "demo.ladera.demopoc",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.5",
+      "toolsId": "2f60754e-78ef-4519-b5de-144b57a2b727"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.139.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "demo.ladera.demopoc.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "navContainer",
+        "bypassed": {
+        "target": "RouteLoginPage"
+    },
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "demo.ladera.demopoc.view",
+        "async": true,
+        "viewPath": "demo.ladera.demopoc.view"
+      },
+      "routes": [
+        {
+          "name": "RouteLoginPage",
+          "pattern": ":?query:",
+          "target": ["TargetLoginPage" ]
+        },
+        {
+          "name": "Routehomeview",
+          "pattern": "Routehomeview",
+          "target": ["Targethomeview" ]
+        },
+         {
+          "name": "RouteCreateview",
+          "pattern": "RouteCreateview",
+          "target": ["TargetCreateview" ]
+        },
+        {
+          "name": "RouteCatalogview",
+          "pattern": "RouteCatalogview",
+          "target": ["TargetCatalogview" ]
+        },
+        {
+          "name": "RouteCartview",
+          "pattern": "RouteCartview",
+          "target": ["TargetCartview" ]
+        }
+      ],
+      "targets": {
+        "TargetLoginPage": {
+          "id": "LoginPage",
+          "name": "LoginPage"
+        },
+        "Targethomeview": {
+          "id": "homeview",
+          "name": "HomePage"
+        },
+        "TargetCreateview": {
+          "id": "createview",
+          "name": "CreatePage"
+        },
+        "TargetCatalogview": {
+          "id": "catalogview",
+          "name": "CatalogPage"
+        },
+         "TargetCartview": {
+          "id": "cartview",
+          "name": "CartPage"
+        }
+
+      }
+    },
+    "rootView": {
+      "viewName": "demo.ladera.demopoc.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

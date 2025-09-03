@@ -1,0 +1,33 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+  controllerName="demo.ladera.demopoc.controller.LoginPage">
+<Page showHeader="false" class="backgroundPage" enableScrolling="false">
+<content>
+<HBox class="loginContainer">
+
+     <HBox class="welcomeSection">
+       <Text text="WELCOME TO THAILAND T-SHIRTS" class="welcomeTitle"/>
+         <Text text="Unlock premium styles made just for you." class="welcomeText"/>
+         <Text text="Log in and wear your style with pride." class="welcomeText"/>
+           <Text text="Step in and explore T-shirts that fit your life." class="welcomeText"/>
+            <Text text="Pleasant Colors in your Garden." class="welcomeText"/>
+             <Text text="New, Amazing Stuff is Here." class="welcomeText"/>
+            </HBox>
+
+     <HBox justifyContent="Center" alignContent="Center">
+         <VBox class="loginSection" width="350px" justifyContent="Center" >
+                    <Title text="USER LOGIN" class="loginTitle"/>
+                      <Input id="username" placeholder="Username" type="Text" class="loginInput"/>
+                        <Input id="password" placeholder="Password" type="Password" class="loginInput"/>
+                          <HBox class="rememberBox" justifyContent="SpaceBetween" alignItems="Center">
+                             <CheckBox text="Remember me" selected="false" class="checkBox"/>
+                              <Link text="Forgot password?" press="onForgotPassword"/>
+                          </HBox>
+                            <Button text="LOGIN" class="loginButton" press="onLogin"/>
+                            </VBox>
+                            </HBox>
+
+   </HBox>
+ </content>
+ </Page>
+</mvc:View>
