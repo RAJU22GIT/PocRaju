@@ -11,12 +11,12 @@ sap.ui.define([
 
 
       
-      onExpand(){
-        var sideNav = this.byId("sideNav");
-        var bExpanded = sideNav.getExpanded();
+      // onExpand(){
+      //   var sideNav = this.byId("sideNav");
+      //   var bExpanded = sideNav.getExpanded();
 
-          sideNav.setExpanded(!bExpanded);
-      },
+      //     sideNav.setExpanded(!bExpanded);
+      // },
 
     onCreate: function() {
     var oRoute = sap.ui.core.UIComponent.getRouterFor(this);
