@@ -18,15 +18,15 @@ sap.ui.define([
 
                       /* ---------- Side navigation ---------- */
     onSideItemSelect: function (oEvent) {
-      var oItem = oEvent.getParameter("item");
-      if (!oItem)  { 
+      var Item = oEvent.getParameter("item");
+      if (!Item)  { 
         return;
        }
-      var sKey = oItem.getKey();
+      var sKey = Item.getKey();
 
       if (sKey === "__toggle") {
-        var oSide = this.byId("sideNav1");
-        oSide.setExpanded(!oSide.getExpanded());
+        var Side = this.byId("sideNav1");
+        Side.setExpanded(!Side.getExpanded());
         return;
       }
       this._setProductData(sKey);
@@ -116,12 +116,12 @@ sap.ui.define([
         };
       }
 
-      var oModel = this.getView().getModel("productModel");
-      if (!oModel) {
-        oModel = new JSONModel(oData);
-        this.getView().setModel(oModel, "productModel");
+      var Model = this.getView().getModel("productModel");
+      if (!Model) {
+        Model = new JSONModel(oData);
+        this.getView().setModel(Model, "productModel");
       } else {
-        oModel.setData(oData);
+        Model.setData(oData);
       }
     },
 
@@ -175,8 +175,6 @@ sap.ui.define([
 
   // Update global cart
   oCartModel.setProperty("/items", aItems);
-  // oCartModel.setProperty("/count", aItems.length);
-
   sap.m.MessageToast.show("Product added to cart!");
 },
 
@@ -249,27 +247,6 @@ onCartPress: function () {
 //       this.byId("cartPanel").setVisible(false);
 //     },
 
-                                // Delete functionality
 
-//     onDeleteFromCart: function (oEvent) {
-//   // Get index of the item
-//   var oListItem = oEvent.getSource().getParent().getParent();
-//   var oList = this.byId("cartList");
-//   var iIndex = oList.indexOfItem(oListItem);
-
-//   // Access cart model
-//   var oCartModel = this.getView().getModel("cartModel");
-//   var aItems = oCartModel.getProperty("/items");
-
-//   // Remove the selected item
-//   aItems.splice(iIndex, 1);
-
-//   // Update the model
-//   oCartModel.setProperty("/items", aItems);
-// },
-
-    // onNavBack: function () {
-    //   history.go(-1);
-    // }
   });
 });

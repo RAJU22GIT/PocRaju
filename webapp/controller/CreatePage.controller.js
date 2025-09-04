@@ -5,16 +5,16 @@ sap.ui.define([
 
   return BaseController.extend("demo.ladera.demo poc.controller.CreatePage", {
       onInit() {
- var oModel = new sap.ui.model.json.JSONModel({
+ var Model = new sap.ui.model.json.JSONModel({
         items: []
     });
-    this.getView().setModel(oModel, "itemsModel");
+    this.getView().setModel(Model, "itemsModel");
 
       },
 
       onAddItem: function () {
-    var oModel = this.getView().getModel("itemsModel");
-    var aItems = oModel.getProperty("/items");
+    var Model = this.getView().getModel("itemsModel");
+    var aItems = Model.getProperty("/items");
 
     // Push a blank row (default values)
     aItems.push({
@@ -25,7 +25,7 @@ sap.ui.define([
         msrp: ""
     });
 
-    oModel.setProperty("/items", aItems); // Update the model
+    Model.setProperty("/items", aItems); // Update the model
 },
 
 // onEnableUnitPriceChange: function (oEvent) {

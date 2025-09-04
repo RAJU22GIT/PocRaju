@@ -17,15 +17,10 @@ sap.ui.define([
       // },
 
     onCreate: function() {
-    var oRoute = sap.ui.core.UIComponent.getRouterFor(this);
-    oRoute.navTo("RouteCreateview");
+    var Route = sap.ui.core.UIComponent.getRouterFor(this);
+    Route.navTo("RouteCreateview");
 },
 
-  // onSignOut: function() {
-  // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-  // oRouter.navTo("RouteLoginPage");
-      
-  //   },
 
     onCatalog: function() {
       var oRouting = sap.ui.core.UIComponent.getRouterFor(this);
