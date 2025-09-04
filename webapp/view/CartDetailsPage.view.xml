@@ -1,0 +1,19 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+  controllerName="demo.ladera.demopoc.controller.CartDetailsPage">
+
+<Page title="My Cart">
+  <List id="cartList" items="{cartModel>/items}" mode="Delete" delete="onDeleteFromCart">
+    <CustomListItem>
+      <HBox>
+        <Image src="{cartModel>image}" width="70px" height="70px"/>
+        <VBox class="sapUiSmallMarginBegin">
+          <Text text="{cartModel>name}" class="sapUiSmallMarginBottom"/>
+          <Text text="Model: {cartModel>model}"/>
+          <Text text="Qty: {cartModel>quantity}"/>
+          <Text text="Subtotal: ₹ {cartModel>subtotal}"/>
+        </VBox>
+      </HBox>
+    </CustomListItem>
+  </List>
+</Page>
+</mvc:View>

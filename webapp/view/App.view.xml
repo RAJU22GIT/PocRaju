@@ -11,7 +11,7 @@
                 <Button 
                 id="sideNavToggleBtn"
                 icon="sap-icon://menu2" 
-                visible="false"
+                visible="true"
                 press=".onToggleSideNav"/>
               <Image src="img/five.png"  width="40px" height="40px" class="image" />
               </contentLeft>
@@ -21,10 +21,10 @@
             </HBox>
             </contentMiddle>
              <contentRight>
-           <Button text="Home" press=".onNavToHome"/>
-        <Button text="Catalog" press=".onNavToCatalog"/>
-           <Button text="Cart" press=".onNavToCart"/>
-           <Button text="Log Out" press=".onLogout"/>
+           <Button text="Home" press="onNavToHome"/>
+        <Button text="Catalog" press="onNavToCatalog"/>
+           <Button text="Cart" press="onNavToCart"/>
+           <Button text="Log Out" press="onLogout"/>
             </contentRight>
             </Bar>
              </customHeader>

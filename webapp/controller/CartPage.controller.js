@@ -2,7 +2,7 @@ sap.ui.define([
   "sap/ui/core/mvc/Controller",
   "sap/ui/model/json/JSONModel",
   "sap/m/MessageToast"
-], function (Controller, JSONModel, MessageToast) {
+], function (Controller, JSONModel,  MessageToast) {
   "use strict";
 
   return Controller.extend("demo.ladera.demopoc.controller.CartPage", {
@@ -11,14 +11,17 @@ sap.ui.define([
       this._setProductData("half");
 
       // cart model for holding items
-      var oCartModel = new JSONModel({ items: [] });
-      this.getView().setModel(oCartModel, "cartModel");
+      // var oCartModel = new JSONModel({ items: [] });
+      // this.getView().setModel(oCartModel, "cartModel");
+
     },
 
                       /* ---------- Side navigation ---------- */
     onSideItemSelect: function (oEvent) {
       var oItem = oEvent.getParameter("item");
-      if (!oItem) { return; }
+      if (!oItem)  { 
+        return;
+       }
       var sKey = oItem.getKey();
 
       if (sKey === "__toggle") {
@@ -142,6 +145,46 @@ sap.ui.define([
 
                        /* ---------- cart logic ---------- */
 
+     onAddToCart: function () {
+  var oProduct = this.getView().getModel("productModel").getData();
+
+  // Use global cart model
+  var oCartModel = this.getOwnerComponent().getModel("cartModel");
+  var aItems = oCartModel.getProperty("/items");
+
+  var bFound = false;
+  for (var i = 0; i < aItems.length; i++) {
+    if (aItems[i].name === oProduct.name) {
+      aItems[i].quantity += oProduct.quantity;
+      aItems[i].subtotal = aItems[i].quantity * oProduct.price;
+      bFound = true;
+      break;
+    }
+  }
+
+  if (!bFound) {
+    aItems.push({
+      name: oProduct.name,
+      model: oProduct.model,
+      quantity: oProduct.quantity,
+      price: oProduct.price,
+      subtotal: oProduct.subtotal,
+      image: oProduct.images[0].src
+    });
+  }
+
+  // Update global cart
+  oCartModel.setProperty("/items", aItems);
+  // oCartModel.setProperty("/count", aItems.length);
+
+  sap.m.MessageToast.show("Product added to cart!");
+},
+
+onCartPress: function () {
+  this.getOwnerComponent().getRouter().navTo("RouteCartPageDetailsview");
+}
+
+
     // onAddToCart: function () {
     //   var oProduct = this.getView().getModel("productModel").getData();
     //   var oCartModel = this.getView().getModel("cartModel");
@@ -160,72 +203,73 @@ sap.ui.define([
     // },
 
 
-    onAddToCart: function () {
+//     onAddToCart: function () {
 
-  // 1. Get the current selected product
-  var oProduct = this.getView().getModel("productModel").getData();
+//   // 1. Get the current selected product
+//   var oProduct = this.getView().getModel("productModel").getData();
 
-  // 2. Get the cart model
-  var oCartModel = this.getView().getModel("cartModel");
-  var aItems = oCartModel.getProperty("/items");
+//   // 2. Get the cart model
+//   var oCartModel = this.getView().getModel("cartModel");
+//   var aItems = oCartModel.getProperty("/items");
 
-  // 3. Check if product already exists in the cart
-  var bFound = false;
-  for (var i = 0; i < aItems.length; i++) {
-    if (aItems[i].name === oProduct.name) {
-      // If product already in cart → just update qty & subtotal
-      aItems[i].quantity += oProduct.quantity;
-      aItems[i].subtotal = aItems[i].quantity * (oProduct.price || 0);
-      bFound = true;
-      break;
-    }
-  }
+//   // 3. Check if product already exists in the cart
+//   var bFound = false;
+//   for (var i = 0; i < aItems.length; i++) {
+//     if (aItems[i].name === oProduct.name) {
+//       // If product already in cart → just update qty & subtotal
+//       aItems[i].quantity += oProduct.quantity;
+//       aItems[i].subtotal = aItems[i].quantity * (oProduct.price || 0);
+//       bFound = true;
+//       break;
+//     }
+//   }
 
-  // 4. If not found, push new product into cart
-  if (!bFound) {
-    aItems.push({
-      name: oProduct.name,
-      quantity: oProduct.quantity,
-      subtotal: oProduct.subtotal,
-      image: oProduct.images[0].src
-    });
-  }
+//   // 4. If not found, push new product into cart
+//   if (!bFound) {
+//     aItems.push({
+//       name: oProduct.name,
+//       quantity: oProduct.quantity,
+//       subtotal: oProduct.subtotal,
+//       image: oProduct.images[0].src
+//     });
+//   }
 
-  // 5. Update cart model so UI refreshes
-  oCartModel.setProperty("/items", aItems);
-   MessageToast.show("Product added to cart!");
- },
+//   // 5. Update cart model so UI refreshes
+//   oCartModel.setProperty("/items", aItems);
+
+//    MessageToast.show("Product added to cart!");
+//  },
 
 
-    onCartPress: function () {
-      this.byId("cartPanel").setVisible(true);
-    },
+//     onCartPress: function () {
+//       this.byId("cartPanel").setVisible(true);
+//     },
 
-    onCloseCart: function () {
-      this.byId("cartPanel").setVisible(false);
-    },
+//     onCloseCart: function () {
+//       this.byId("cartPanel").setVisible(false);
+//     },
 
                                 // Delete functionality
 
-    onDeleteFromCart: function (oEvent) {
-  // Get index of the item
-  var oListItem = oEvent.getSource().getParent().getParent();
-  var oList = this.byId("cartList");
-  var iIndex = oList.indexOfItem(oListItem);
+//     onDeleteFromCart: function (oEvent) {
+//   // Get index of the item
+//   var oListItem = oEvent.getSource().getParent().getParent();
+//   var oList = this.byId("cartList");
+//   var iIndex = oList.indexOfItem(oListItem);
 
-  // Access cart model
-  var oCartModel = this.getView().getModel("cartModel");
-  var aItems = oCartModel.getProperty("/items");
+//   // Access cart model
+//   var oCartModel = this.getView().getModel("cartModel");
+//   var aItems = oCartModel.getProperty("/items");
 
-  // Remove the selected item
-  aItems.splice(iIndex, 1);
+//   // Remove the selected item
+//   aItems.splice(iIndex, 1);
 
-  // Update the model
-  oCartModel.setProperty("/items", aItems);
-},
+//   // Update the model
+//   oCartModel.setProperty("/items", aItems);
+// },
 
-    onNavBack: function () {
-      history.go(-1);
-    }
+    // onNavBack: function () {
+    //   history.go(-1);
+    // }
   });
 });

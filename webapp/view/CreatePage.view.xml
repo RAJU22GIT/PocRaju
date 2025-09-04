@@ -1,5 +1,11 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="demo.ladera.demopoc.controller.CreatePage">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" 
+xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+ xmlns:core="sap.ui.core"
+ 
+  controllerName="demo.ladera.demopoc.controller.CreatePage">
 <Page showHeader="false">
+
 <Toolbar class=" toolbarBuutons sapUiSmallMarginBottom">
 <Button text="INFO" type="Default" press="onInfoPress"/>
 <Button text="SEQ" type="Default" press="onSeqPress"/>

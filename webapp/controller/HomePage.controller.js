@@ -9,8 +9,6 @@ sap.ui.define([
 
       },
 
-
-      
       // onExpand(){
       //   var sideNav = this.byId("sideNav");
       //   var bExpanded = sideNav.getExpanded();
@@ -23,11 +21,11 @@ sap.ui.define([
     oRoute.navTo("RouteCreateview");
 },
 
-  onSignOut: function() {
-  var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-  oRouter.navTo("RouteLoginPage");
+  // onSignOut: function() {
+  // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+  // oRouter.navTo("RouteLoginPage");
       
-    },
+  //   },
 
     onCatalog: function() {
       var oRouting = sap.ui.core.UIComponent.getRouterFor(this);

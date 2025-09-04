@@ -21,6 +21,14 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
-        }
+
+             // Global cart model (accessible everywhere)
+                  var oCartModel = new sap.ui.model.json.JSONModel({
+                  items: [],
+                  count: 0
+                            });
+                  this.setModel(oCartModel, "cartModel");
+                     }
+
     });
 });
